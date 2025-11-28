@@ -1,13 +1,28 @@
 {% extends "base.html" %}
 
+{% block title %}Avaliação Semestral{% endblock %}
+
 {% block content %}
+<div class="container mt-5">
+    <!-- Título principal -->
+    <h1 class="mb-4 text-dark" style="font-weight: 400;">Avaliação semestral</h1>
+    
+    <!-- Informações do Aluno (Seus dados) -->
+    <!-- fs-5 aumenta levemente a fonte para ficar legível como na imagem -->
+    <p class="fs-5 mb-1 text-dark">
+        Aluno: Carlos Eduardo
+    </p>
+    
+    <p class="fs-5 text-dark">
+        Prontuário: PT3031527
+    </p>
 
-<div class="jumbotron">
-    <h2>Avaliação semestral</h2>
+    <!-- Linha divisória suave -->
+    <hr class="my-4 text-muted opacity-25">
 
-    <p><strong>Aluno:</strong> Carlos Eduardo</p>
-    <p><strong>Prontuário:</strong> PT3031527</p>
-    <p><strong>A data e hora local é:</strong> {{ data_hora }}</p>
+    <!-- Data e hora em cinza e menor -->
+    <p class="small text-secondary">
+        A data e hora local é {{ hora }}
+    </p>
 </div>
-
-{% endblock %}
+{% endblock content %}
