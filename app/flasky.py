@@ -43,7 +43,9 @@ def professores():
 @app.route('/cursos')
 @app.route('/ocorrencias')
 def nao_disponivel():
-    return "<h1>Não disponível</h1>"
+    hora = datetime.now().strftime('%d/%m/%Y %H:%M')
+    return render_template("nao_disponivel.html", hora=hora)
+
 
 if __name__ == '__main__':
     app.run()
