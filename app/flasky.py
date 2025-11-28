@@ -1,6 +1,12 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from flask import Flask
+from views import views
+
+app = Flask(__name__)
+app.register_blueprint(views)
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///professores.db'
