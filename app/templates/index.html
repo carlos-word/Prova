@@ -1,6 +1,13 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
-<h2>Seu nome e prontuário</h2>
-<p>Clique nos módulos não desenvolvidos para ver “Não disponível”.</p>
+
+<div class="jumbotron">
+    <h2>Avaliação semestral</h2>
+
+    <p><strong>Aluno:</strong> Carlos Eduardo</p>
+    <p><strong>Prontuário:</strong> PT3031527</p>
+    <p><strong>A data e hora local é:</strong> {{ data_hora }}</p>
+</div>
+
 {% endblock %}
