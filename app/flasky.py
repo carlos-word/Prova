@@ -3,10 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
-app.register_blueprint(views)
 
-
-app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///professores.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -17,10 +14,15 @@ class Professor(db.Model):
     nome = db.Column(db.String(80), nullable=False)
     disciplina = db.Column(db.String(30), nullable=False)
 
+
+# ---------------------- INDEX ----------------------
 @app.route('/')
 def index():
-    return render_template('index.html')
+    data_hora = datetime.now().strftime("%d/%m/%Y %H:%M")
+    return render_template('index.html', data_hora=data_hora)
 
+
+# ----------------- PROFESSORES ---------------------
 @app.route('/professores', methods=['GET', 'POST'])
 def professores():
     if request.method == 'POST':
@@ -42,6 +44,8 @@ def professores():
         hora=hora
     )
 
+
+# ------------- PÁGINAS NÃO DISPONÍVEIS --------------
 @app.route('/disciplinas')
 @app.route('/alunos')
 @app.route('/cursos')
